@@ -4,8 +4,6 @@ var Letter = require("./letter.js");
 function Word(word) {
 	this.word = word;
 	this.letters = [];
-	//collect the letter which user guessed
-	// this.guessedLetters = [];
 	this.incorrectGuess = 0;
 
 	for (var i = 0; i < this.word.length; i++) {
@@ -24,7 +22,6 @@ Word.prototype.toDisplay = function() {
 
 // Checks the letters array 
 Word.prototype.searchLetter = function(letter) {
-
 	// If letter is guessed correctly, change showLetter to true to render letter
 	for (var i = 0; i < this.letters.length; i++) {
 		if (this.letters[i].letter === letter) {
@@ -32,7 +29,7 @@ Word.prototype.searchLetter = function(letter) {
 		}
 	}
 
-	// Checks if the guessed letter is in the word and if not, records the incorrect guess
+	
 	if (this.word.indexOf(letter) > -1) {
 		var letterIndex = this.word.indexOf(letter);
 		if (!this.letters[letterIndex].showLetter) {
